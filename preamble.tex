@@ -109,37 +109,10 @@
 
 %%% Titles %%%
 \usepackage{titlesec, titletoc}
-%\renewcommand{\thechapter}{\Roman{chapter}} 
-\renewcommand{\chaptertitlename}{פרק}
-%\titleformat{\chapter}[display]{\filcenter}{}{0pt}{\LARGE\fontspec[Script=Hebrew]{SBL Hebrew}\chaptertitlename\ \thechapter:\ }
 
+\newcommand{\sectionfont}{\fontspec[Script=Hebrew]{Alef Bold}}
+\titleformat{\section}{\sectionfont\Large\color{inkC}}{\textbf{\LR{\thesection}}\sectionornament}{0.0cm}{}[\titleline{\color{inkB}\titlerule}]
 
-\titleformat{\section}[runin]
-	{\fontspec[Script=Hebrew]{SBL Hebrew}\Large} 
-	{\hspace{-2cm}\thesection}
-	{2cm}
-	{\bfseries}
-	[\vspace{-0.5em}\titlerule\vspace{0.5em}]
-
-\titleformat{\subsection}[runin]
-	{\fontspec[Script=Hebrew]{SBL Hebrew}\large} 
-	{\hspace{-2cm}\thesubsection}
-	{2cm}
-	{\bfseries}
-	[\titlerule\\]
-
-\titleformat{\subsubsection}[runin]
-	{\fontspec[Script=Hebrew]{SBL Hebrew}\normalsize} 
-	{\hspace{-2cm}\thesubsubsection}
-	{2cm}
-	{\bfseries}
-	[\titlerule\\]
-
-\titleformat{\section}{\fontspec[Script=Hebrew]{SBL Hebrew}\Large}{\LR{\thesection}}{2.0cm}{}[\titlerule]
-\titleformat{\subsection}{\fontspec[Script=Hebrew]{SBL Hebrew}\large}{\LR{\thesubsection}}{2.0cm}{}[\titlerule]
-\titleformat{\subsubsection}{\fontspec[Script=Hebrew]{SBL Hebrew}\normalsize}{\LR{\thesubsubsection}}{2.0cm}{}[\titlerule]
-
-%\titleformat{\section}{}{}
 
 \newcommand{\transsection}[4]{
 	\noindent
@@ -178,6 +151,7 @@
 \newcommand{\middlelinenormal}{} % TEMPORARY
 
 %\hyphenpenalty=5000
+%\tolerance=99999
 \tolerance=99999
 %\widowpenalty=1000
 %\clubpenalty=1000
@@ -198,9 +172,21 @@
 	AutoFakeSlant=-0.15,
 	BoldFont={Rutz_OE Bold Pro}]
 	{Rutz_OE Regular Pro}
-\setmainfont[Script=Hebrew]{Alef}
+%\setmainfont[Script=Hebrew]{Alef}
 \setmonofont[Mapping=tex-text] {LMTypewriter10 Regular}
 %\setmonofont[Mapping=tex-text, Scale=0.75]{Monaco}
+
+\newfontfamily{\MerxSubstFont}[Script=Hebrew]{Vesper Pro}
+\XeTeXinterchartokenstate=1
+\newXeTeXintercharclass\MerxSubst
+\XeTeXcharclass"2019=\MerxSubst
+\XeTeXcharclass"201A=\MerxSubst
+\XeTeXcharclass"201D=\MerxSubst
+\XeTeXcharclass"201E=\MerxSubst
+\XeTeXinterchartoks 0 \MerxSubst = {\begingroup\MerxSubstFont}
+\XeTeXinterchartoks 255 \MerxSubst = {\begingroup\MerxSubstFont}
+\XeTeXinterchartoks \MerxSubst 0 = {\endgroup}
+\XeTeXinterchartoks \MerxSubst 255 = {\endgroup}
 
 
 %\usepackage{xstring}
