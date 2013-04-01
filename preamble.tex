@@ -1,0 +1,214 @@
+%%% Class and paper %%%
+\documentclass[a5paper, twoside, 10pt]{book}
+\usepackage[top=2.0cm, bottom=2.0cm, left=2.0cm, right=2.0cm]{geometry}
+%\usepackage[top=1.0cm, bottom=1.0cm, left=1.0cm, right=1.0cm]{geometry}
+%\usepackage[top=2.0cm, bottom=2.0cm, left=2.0cm, right=2.0cm]{gmeometric}
+
+%\usepackage[english]{babel}
+%\usepackage{parallel}
+\usepackage{setspace}
+\setstretch{1.25}
+
+%   \usepackage{ledmac}
+%   %%%\footnormal{A}
+%   %\foottwocol{A} 
+%   \usepackage{ledpar}
+%   \maxchunks{3000}
+%   \makeatletter
+%   \renewcommand{\footnoterule}{\vskip0.5cm\hrule\vskip0.5cm}
+%   \let\normalfootnoterule=\hrulefill
+%   %%\renewcommand{\footnoteA}[1]{%
+%   %%	\refstepcounter{footnoteA}% 
+%   %%	\LR{\vfootnoteA{A}{\raggedright\RL{\textsuperscript{\arabic{footnoteA}} #1}}}%
+%   %%	\m@mmf@prepare\hbox{\textsuperscript{\arabic{footnoteA}}}}
+%   %\renewcommand{\footnoteA}[1]{}
+%   \let\OLDthefootnoteA\thefootnoteA
+%   \renewcommand{\thefootnoteA}{\OLDthefootnoteA\ }
+%   %%\renewcommand*{\bodyfootmarkA}{\hbox{\textsuperscript{(\thefootnoteA)}}}
+%   
+%   %\renewcommand{\footnoteA}[1]{%
+%   %	\refstepcounter{footnoteA}% 
+%   %	\LR{%
+%   %	\vfootnoteA{A}{\RL{\textsuperscript{\arabic{footnoteA}} #1}}%	
+%   %	\m@mmf@prepare}\hbox{\textsuperscript{\arabic{footnoteA}}}}
+%   %	\renewcommand{\thefootnoteA}{} 
+%   %	\renewcommand*{\bodyfootmarkA}{\hbox{\textsuperscript{(\thefootnoteA)}}}
+%   
+%   \let\OLDfootnoteA\footnoteA
+%   \renewcommand{\footnoteA}[1]{\LR{\OLDfootnoteA{\RL{#1}}}}
+%   \newcommand{\footnoteAout}[1]{\RL{\OLDfootnoteA{\RL{#1}}}}
+%   \makeatother
+%   \firstlinenum{99999}
+%   \linenumincrement{99999}
+
+
+%%% Changemargin %%%
+\newenvironment{changemargin}[4]{%
+ \begin{list}{}{%
+  \setlength{\topsep}{0pt}%
+  \setlength{\topmargin}{#1}%
+ % \setlength{\bottommargin}{#2}%
+  \setlength{\leftmargin}{#3}%
+  \setlength{\rightmargin}{#4}%
+  \setlength{\listparindent}{\parindent}%
+  \setlength{\itemindent}{\parindent}%
+  \setlength{\parsep}{\parskip}%
+ }%
+\item[]}{\end{list}}
+\makeatletter
+
+\usepackage{xltxtra}
+
+\newfontfamily\LatinFont[Mapping=tex-text]{SBL Hebrew}
+%\newfontfamily\LatinFont[Mapping=tex-text]{Hoefler Text}
+\renewcommand{\L}[1]{{\LR{\LatinFont#1}}}
+\newcommand{\BH}[1]{\RL{\fontspec[Script=Hebrew]{SBL Hebrew}#1}}
+%\newcommand{\BHhl}[1]{\RL{\fontspec[Script=Hebrew]{Cardo}#1}}
+\newcommand{\BHhl}[1]{\BH{\underline{#1}}}
+\newcommand{\Chl}[1]{\C{\underline{#1}}}
+
+\renewcommand{\textsc}[1]{{\fontspec{Palatino Linotype}\scshape#1}}
+\newcommand{\textscbf}[1]{\textsc{\textbf{#1}}}
+%\setlength\parskip{\medskipamount}
+%\setlength\parindent{0pt}
+
+%\newcommand{\hebfootnote}[1]{\R{\footnote{\hspace{-2pt}\HebrewFootnoteFont{}\small#1\medskip}}}
+%\let\OLDfootnote\footnote
+%\renewcommand{\footnote}[1]{\OLDfootnote{\fontspec{Guttman Hodes Light}#1\medskip}}
+
+\renewcommand{\labelitemi}{\L{~~~•}}
+\renewcommand{\labelitemii}{\L{~~~–}}
+\renewcommand{\labelenumi}{\arabic{enumi}.\hskip2em}
+\renewcommand{\labelenumii}{\alph{enumii}.\hskip2em}
+
+
+
+%%% Header/footer %%%
+\usepackage{fancyhdr} 
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields 
+\renewcommand{\chaptername}{פרק}
+\newcommand{\sectionname}{סעיף}
+%\renewcommand{\chaptermark}[1]% 
+%{\markboth{\MakeUppercase{#1}}{}} 
+%\renewcommand{\sectionmark}[1]% 
+%{\markright{\MakeUppercase{#1}}} 
+%\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter~—~#1}} 
+\renewcommand{\chaptermark}[1]{\markboth{{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{{#1}}} 
+\fancyhead[CO]{\RL{\fontspec[Language=Hebrew]{SBL Hebrew}\rightmark}}
+%\fancyhead[CE]{\RL{\leftmark}}
+\fancyhead[CE]{\RL{\fontspec[Language=Hebrew]{SBL Hebrew}בגנות הלאומנות}}
+\fancyhead[RE,LO]{\L{\thepage}}
+\fancyfoot{} % clear all footer field
+\fancyfoot[CO,CE]{}
+\renewcommand{\headrulewidth}{0.4pt} 
+
+
+
+
+%%% Titles %%%
+\usepackage{titlesec, titletoc}
+%\renewcommand{\thechapter}{\Roman{chapter}} 
+\renewcommand{\chaptertitlename}{פרק}
+%\titleformat{\chapter}[display]{\filcenter}{}{0pt}{\LARGE\fontspec[Script=Hebrew]{SBL Hebrew}\chaptertitlename\ \thechapter:\ }
+
+
+\titleformat{\section}[runin]
+	{\fontspec[Script=Hebrew]{SBL Hebrew}\Large} 
+	{\hspace{-2cm}\thesection}
+	{2cm}
+	{\bfseries}
+	[\vspace{-0.5em}\titlerule\vspace{0.5em}]
+
+\titleformat{\subsection}[runin]
+	{\fontspec[Script=Hebrew]{SBL Hebrew}\large} 
+	{\hspace{-2cm}\thesubsection}
+	{2cm}
+	{\bfseries}
+	[\titlerule\\]
+
+\titleformat{\subsubsection}[runin]
+	{\fontspec[Script=Hebrew]{SBL Hebrew}\normalsize} 
+	{\hspace{-2cm}\thesubsubsection}
+	{2cm}
+	{\bfseries}
+	[\titlerule\\]
+
+\titleformat{\section}{\fontspec[Script=Hebrew]{SBL Hebrew}\Large}{\LR{\thesection}}{2.0cm}{}[\titlerule]
+\titleformat{\subsection}{\fontspec[Script=Hebrew]{SBL Hebrew}\large}{\LR{\thesubsection}}{2.0cm}{}[\titlerule]
+\titleformat{\subsubsection}{\fontspec[Script=Hebrew]{SBL Hebrew}\normalsize}{\LR{\thesubsubsection}}{2.0cm}{}[\titlerule]
+
+%\titleformat{\section}{}{}
+
+\newcommand{\transsection}[4]{
+	\noindent
+	{\Large #1: \hfill \Large #2}
+	\\
+	{\large #3 \hfill #4}
+	\vspace{0.1cm}
+	\hrule
+	\vspace{1cm}
+	\markright{#1}
+}
+
+\newcommand{\simplesection}[3]{
+	\noindent
+	{\Large #1}
+	\vspace{0.1cm}
+	\hrule
+	\vspace{1cm}
+	\markright{#1}
+}
+
+\newcommand{\begintranslation}{
+	\vspace{1cm}
+	\hrule
+}
+
+%%% Misc %%%
+\usepackage{url, needspace, ifthen, endnotes, ruby, graphicx, tabulary, xltxtra, longtable}
+%\usepackage[normalsections, normalmargins, normalfloats, normalindent, normaltitle, normalleading, normallooseness, normalbib, normalbibnotes]{savetrees}
+
+%\newcommand{\middleline}{\begin{center}\Heb{———————}\end{center}}
+%\newcommand{\middleline}{\begin{center}\Heb{\underline{~ ~ ~ ~ ~ ~ ~}}\end{center}}
+%\newcommand{\middleline}{{\begin{center}\huge\fontspec{Bodoni Ornaments ITC TT}∂\end{center}}\vspace{-0.4cm}} FIXME!!!
+%\newcommand{\middlelinenormal}{{\vspace{-2em}\begin{center}\huge\fontspec{Bodoni Ornaments ITC TT}∂\end{center}}} FIXME!!!
+\newcommand{\middleline}{} % TEMPORARY
+\newcommand{\middlelinenormal}{} % TEMPORARY
+
+%\hyphenpenalty=5000
+\tolerance=99999
+%\widowpenalty=1000
+%\clubpenalty=1000
+
+\newcounter{edRemarkCounter}
+\setcounter{edRemarkCounter}{1}
+\newcommand{\edRemark}[1]{{\addfontfeature{Color=990099}[{\fontspec{Fontin}\addfontfeature{Color=990099}\textbf{\arabic{edRemarkCounter}}}:~#1]}\stepcounter{edRemarkCounter}}
+%\newcommand{\edRemark}[1]{}
+
+\newcommand{\mdash}{~—\ }
+
+%%% Fonts and BiDi %%%
+\usepackage{fontspec}
+\usepackage{bidi}
+\TeXXeTstate=1
+\setmainfont[Mapping=tex-text,
+	Script=Hebrew,
+	AutoFakeSlant=-0.15,
+	BoldFont={Rutz_OE Bold Pro}]
+	{Rutz_OE Regular Pro}
+\setmainfont[Script=Hebrew]{Alef}
+\setmonofont[Mapping=tex-text] {LMTypewriter10 Regular}
+%\setmonofont[Mapping=tex-text, Scale=0.75]{Monaco}
+
+
+%\usepackage{xstring}
+%\normalexpandarg
+\newcommand{\C}[1]{{\LR{\fontspec{Junicode}#1}}}
+\newcommand{\Gr}[1]{{\LR{\fontspec{Gentium}#1}}}
+\newcommand{\Heb}[1]{{\RL{\normalfont#1}}}
+%\newcommand{\bibHebrew}[1]{\BH{#1}}
+\newcommand{\bibHebrew}[1]{}
+\renewcommand{\emph}{\textbf}
+%\renewcommand{\textbf}[1]{{\fontspec[Mapping=tex-text, Script=Hebrew]{Guttman Hodes}#1}}
