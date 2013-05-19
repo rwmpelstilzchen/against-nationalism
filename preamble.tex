@@ -62,10 +62,7 @@
 \newfontfamily\LatinFont[Mapping=tex-text]{SBL Hebrew}
 %\newfontfamily\LatinFont[Mapping=tex-text]{Hoefler Text}
 \renewcommand{\L}[1]{{\LR{\LatinFont#1}}}
-\newcommand{\BH}[1]{\RL{\fontspec[Script=Hebrew]{SBL Hebrew}#1}}
-%\newcommand{\BHhl}[1]{\RL{\fontspec[Script=Hebrew]{Cardo}#1}}
-\newcommand{\BHhl}[1]{\BH{\underline{#1}}}
-\newcommand{\Chl}[1]{\C{\underline{#1}}}
+\newcommand{\symbolglyph}[1]{{\fontspec{Symbola}#1}}
 
 \renewcommand{\textsc}[1]{{\fontspec{Palatino Linotype}\scshape#1}}
 \newcommand{\textscbf}[1]{\textsc{\textbf{#1}}}
@@ -110,8 +107,28 @@
 %%% Titles %%%
 \usepackage{titlesec, titletoc}
 
+\usepackage{xcolor}
+
+\newcommand{\inkAlight}{\addfontfeature{Color=BF0000}} % light red
+	\definecolor{inkAlight}{HTML}{BF0000}
+\newcommand{\inkAdark}{\addfontfeature{Color=800000}} % dark red
+	\definecolor{inkAdark}{HTML}{800000}
+\newcommand{\inkA}{\inkAlight}
+	\definecolor{inkA}{HTML}{B80808}
+
+%\newcommand{\inkB}{\addfontfeature{Color=BFBFBF}} % light grey
+%	\definecolor{inkB}{HTML}{BFBFBF}
+\newcommand{\inkB}{\addfontfeature{Color=808080}} % light grey
+	\definecolor{inkB}{HTML}{808080}
+
+\newcommand{\inkC}{\addfontfeature{Color=404040}} % dark grey
+	\definecolor{inkC}{HTML}{404040}
+
 \newcommand{\sectionfont}{\fontspec[Script=Hebrew]{Alef Bold}}
+%\titleformat{\section}{\sectionfont\Large\color{inkC}}{\textbf{\LR{\thesection}}\sectionornament}{0.0cm}{}[\titleline{\color{pink}\titlerule}]
+\newcommand{\sectionornament}{\hspace{0.5cm}{\symbolglyph{\inkA ⁘}}\hspace{0.5cm}}
 \titleformat{\section}{\sectionfont\Large\color{inkC}}{\textbf{\LR{\thesection}}\sectionornament}{0.0cm}{}[\titleline{\color{inkB}\titlerule}]
+\titleformat{\subsection}{\sectionfont\large\color{inkC}}{\textbf{\LR{\thesubsection}}\sectionornament}{0.0cm}{}[{\titleline{\color{inkB}\titlerule}}] % Solution from http://tex.stackexchange.com/questions/40088/strange-behaviour-of-titlesec-with-colored-titlerule
 
 
 \newcommand{\transsection}[4]{
@@ -140,7 +157,7 @@
 }
 
 %%% Misc %%%
-\usepackage{url, needspace, ifthen, endnotes, ruby, graphicx, tabulary, xltxtra, longtable}
+\usepackage{url, needspace, ifthen, endnotes, ruby, graphicx, tabulary, xltxtra, longtable, onimage, textpos}
 %\usepackage[normalsections, normalmargins, normalfloats, normalindent, normaltitle, normalleading, normallooseness, normalbib, normalbibnotes]{savetrees}
 
 %\newcommand{\middleline}{\begin{center}\Heb{———————}\end{center}}
